@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+targetNamespace="http://kolos.math.uni.lodz.pl/~idzik84/kvml"
+xmlns="http://kolos.math.uni.lodz.pl/~idzik84/kvml"
+elementFormDefault="qualified">
+
+<xs:element name="test">
+  <xs:complexType>
+    <xs:annotation>
+      <xs:documentation>
+        Element główny, zawiera:
+        1) Konfigurację(config) - jeden element
+        2) Pytania(item) - wiele elementów
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+       <xs:element name="config" type="Tconfig"  />
+       <xs:element name="item" type ="Titem" maxOccurs="unbounded" />
+     </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+<xs:complexType name="Tconfig">
+  <xs:annotation>
+    <xs:documentation>
+      Typ konfiguracja, zawiera pola:
+      1) Autor(author) - wymagany - tekst
+      2) Licencja(license) - wymagany - tekst
+      3) Tryb testu(mode) - wymagany - typu Tmode
+      3) Tytuł(title) - opcjonalny - tekst
+      4) Czas na rozwiązanie testu w minutach(time) - opcjonalny - liczba dodatnia
+      5) Dodatkowe instrukcje(instructions) - opcjonalny - tekst
+      6) Język(language) - opcjonalny - kod języka
+      7) Ocenianie(grading) - opcjonalny - typu Tgrading
+      8) Znak wodny - opcjonalny - tekst(nazwa pliku)
+      9) Id testu - wymagany - nr testu.
+    </xs:documentation>
+  </xs:annotation>
+  <xs:sequence>
+    <xs:element name="author" type="xs:string" />
+    <xs:element name="license" type="xs:string" />
+    <xs:element name="title" type="xs:string" minOccurs="0" />
+    <xs:element name="mode" type="Tmode" />
+    <xs:element name="time" type="xs:positiveInteger" minOccurs="0" />
+    <xs:element name="instructions" type="xs:string" minOccurs="0" />
+    <xs:element name="language" type="xs:language" minOccurs="0" />
+    <xs:element name="grading" type="Tgrading" minOccurs="0" />
+    <xs:element name="watermark" type="xs:string" minOccurs="0" />
+    <xs:element name="test_id" type="xs:positiveInteger" />
+  </xs:sequence>
+</xs:complexType>
+
+<xs:simpleType name="Tmode">
+  <xs:annotation>
+    <xs:documentation>
+      tryby testu: test - sprawdzanie wiedzy, practice - ćwiczenia
+    </xs:documentation>
+  </xs:annotation>
+  <xs:restriction base="xs:string">
+    <xs:enumeration value="test" />
+    <xs:enumeration value="practice" />
+  </xs:restriction>
+</xs:simpleType>
+
+<xs:complexType name="Tgrading">
+  <xs:annotation>
+    <xs:documentation>
+      Typ zawierający wiele elementów z ocenami(grade) typu Tgrade
+    </xs:documentation>
+  </xs:annotation>
+  <xs:sequence>
+    <xs:element name="grade" type="Tgrade" maxOccurs="unbounded" />  
+  </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="Tgrade">
+  <xs:annotation>
+    <xs:documentation>
+      Typ Tgrade opisujący pojedyńczą ocenę, zawiera atrybut min_score - minimalną liczbę punktów potrzebną do otrzymania danej oceny
+    </xs:documentation>
+  </xs:annotation>
+  <xs:simpleContent>
+    <xs:extension base="xs:string">
+      <xs:attribute name="min_score" type="xs:decimal" />
+    </xs:extension>
+  </xs:simpleContent>
+</xs:complexType>
+
+<xs:complexType name="Titem">
+  <xs:annotation>
+    <xs:documentation>
+      Typ pytanie, zawiera pola:
+      1) Pytanie(question) - wymagany - typu TQuestionOption
+      2) Możliwe odpowiedzi - opcjonalny - typu TQuestionOption
+      i atrybuty:
+      1) Id pytania - wymagany - liczba nieujemna
+      2) Typ pytania - wymagany - typu ATItemType
+      3) Punkty - wymagany - liczba całkowita dodatnia
+    </xs:documentation>
+  </xs:annotation>
+  <xs:sequence>
+    <xs:element name="question" type="TQuestionOption" />
+    <xs:element name="option" type="TQuestionOption" minOccurs="0" maxOccurs="unbounded" />
+  </xs:sequence>
+  <xs:attribute name="id" type="xs:nonNegativeInteger" />
+  <xs:attribute name="type" type="ATItemType" />
+  <xs:attribute name="points" type="xs:positiveInteger" />
+</xs:complexType>
+
+<xs:simpleType name="ATItemType">
+  <xs:annotation>
+    <xs:documentation>
+      możliwe typy pytań: one - jednokrotnego wyboru, mul - wielokrotnego wyboru, txt - pole opisowe
+    </xs:documentation>
+  </xs:annotation>
+  <xs:restriction base="xs:string">
+    <xs:enumeration value="one" />
+    <xs:enumeration value="mul" />
+    <xs:enumeration value="txt" />
+  </xs:restriction>
+</xs:simpleType>
+
+<xs:complexType name="TQuestionOption">
+  <xs:annotation>
+    <xs:documentation>
+      typ zawiera atrybut mówiący o rodzaju pytania, odpowiedzi
+    </xs:documentation>
+  </xs:annotation>
+  <xs:simpleContent>
+    <xs:extension base="xs:string">
+      <xs:attribute name="type" type="ATQuestionOptionType" />
+    </xs:extension>
+  </xs:simpleContent>
+</xs:complexType>
+
+<xs:simpleType name="ATQuestionOptionType">
+    <xs:annotation>
+    <xs:documentation>
+      Dopuszczalne typy pytania, odpowiedzi: txt - pole tekstowe, img - obrazek + opcjonalny tekst, snd - nagranie + opcjonalny tekst
+    </xs:documentation>
+  </xs:annotation>
+  <xs:restriction base="xs:string">
+    <xs:enumeration value="txt" />
+    <xs:enumeration value="img" />
+    <xs:enumeration value="snd" />
+  </xs:restriction>
+</xs:simpleType>
+</xs:schema>

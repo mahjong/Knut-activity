@@ -1,0 +1,7 @@
+[Activity]
+name = TestClient
+service_name = com.wiktori.knut
+class = TestClientActivity.TestClientActivity
+icon = activity-testclient
+activity_version = 1
+show_launcher = yes

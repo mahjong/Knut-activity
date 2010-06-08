@@ -1,0 +1,12 @@
+*~
+*.swp
+*.pyc
+*.jpg
+*.jpeg
+*.html
+*.sqlite
+.project
+.pydevproject
+knut.kpf
+.settings/
+settings.txt

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
+"http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   id="svg1"
+   sodipodi:version="0.32"
+   inkscape:version="0.37"
+   width="48pt"
+   height="48pt"
+   sodipodi:docbase="/usr/share/themes/Lila/gtk-2.0"
+   sodipodi:docname="stock_apply.svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs
+     id="defs3">
+    <linearGradient
+       id="linearGradient584">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0.00000000"
+         id="stop585" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0;"
+         offset="1.00000000"
+         id="stop586" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient578">
+      <stop
+         style="stop-color:#d9cce6;stop-opacity:1;"
+         offset="0.00000000"
+         id="stop579" />
+      <stop
+         style="stop-color:#73667f;stop-opacity:1;"
+         offset="1.00000000"
+         id="stop580" />
+    </linearGradient>
+    <linearGradient
+       xlink:href="#linearGradient578"
+       id="linearGradient581"
+       x1="0.00877193"
+       y1="0.02857143"
+       x2="0.99122804"
+       y2="0.97142857" />
+    <linearGradient
+       xlink:href="#linearGradient584"
+       id="linearGradient583"
+       x1="0.01298701"
+       y1="0.00714286"
+       x2="0.97402596"
+       y2="0.99285716" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="7.97947193"
+     inkscape:cx="29.4003546"
+     inkscape:cy="24.0932681"
+     inkscape:window-width="640"
+     inkscape:window-height="516"
+     inkscape:window-x="99"
+     inkscape:window-y="57" />
+  <path
+     style="fill:#000000;fill-rule:evenodd;stroke:none;stroke-opacity:1;stroke-width:12.5;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;stroke-dasharray:none;opacity:0.302675;"
+     d="M 8.3747996 24.073552 C 9.0201093 29.118695 22.824239 60.696059 28.855687 57.576341 C 38.443131 52.617318 53.112177 7.840673 52.534855 3.3270948 C 52.124773 0.1209875 37.392761 30.026346 26.764062 35.523948 C 21.773864 38.105086 8.0327084 21.39901 8.3747996 24.073552 z "
+     id="path587"
+     sodipodi:nodetypes="cssss" />
+  <rect
+     style="font-size:12;fill:#0000ff;fill-rule:evenodd;stroke-width:1pt;"
+     id="rect575"
+     width="0.00000000"
+     height="0.00000000"
+     x="45.09817461"
+     y="50.32653810" />
+  <path
+     style="font-size:12;fill:url(#linearGradient581);fill-rule:evenodd;stroke:#261933;stroke-width:1.875;stroke-dasharray:none;"
+     d="M 10.340109 26.082887 C 10.891522 30.393933 23.364795 57.512153 28.518632 54.846374 C 36.711045 50.608917 50.872194 9.2300067 50.378882 5.3731804 C 50.028467 2.6335801 36.220146 32.660508 27.137984 37.358177 C 22.873886 39.563744 10.047794 23.797508 10.340109 26.082887 z "
+     id="path577"
+     sodipodi:nodetypes="cssss" />
+  <path
+     style="fill:url(#linearGradient583);fill-rule:evenodd;stroke:none;stroke-opacity:1;stroke-width:1pt;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;"
+     d="M 14.712159 33.906557 C 14.113418 33.090092 12.885742 30.312623 13.56162 30.685047 C 16.64417 32.383593 22.281671 41.450943 25.987446 40.11947 C 34.579544 37.345142 42.123329 20.197608 46.467047 14.347388 C 47.384505 13.063137 45.154151 19.734481 44.396079 21.250624 C 44.233711 21.575345 44.228779 20.182095 43.935865 20.560299 C 38.169275 28.005764 35.189521 40.822459 26.217553 44.721628 C 23.11052 46.025689 19.593428 37.427248 16.092808 34.136666 C 15.758296 33.822226 14.957147 34.24063 14.712159 33.906557 z "
+     id="path582"
+     sodipodi:nodetypes="cssssssss" />
+</svg>
