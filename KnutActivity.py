@@ -3,9 +3,10 @@
 from sugar.activity import activity
 from sugar import logger
 
-import createtoolbar, itempanel, testrunner
+import testtoolbar, itempanel, testrunner
 from testrunner import RunTest
-from createtoolbar import TestToolbar
+from testtoolbar import TestToolbar
+from browsetoolbar import BrowseToolbar
 import gtk, os
 from sugar.graphics.toolbutton import ToolButton
 from sugar.graphics.alert import Alert, NotifyAlert, Icon
@@ -14,12 +15,16 @@ import mimetools
 import tarfile
 import httplib
 from sugar import profile
+import logging
+import urllib, urllib2
+
 
 class KnutActivity(activity.Activity):	
 
     def __init__(self, handle):
         activity.Activity.__init__(self, handle)
         self.test_cover = False
+        self.chosen_test_id = None
         
         self.data_path = os.path.join(self.get_activity_root(), "data")
         self.instance_path = os.path.join(self.get_activity_root(), "instance")
@@ -53,11 +58,11 @@ class KnutActivity(activity.Activity):
         tool_item.show()
         
         tool_item = gtk.ToolItem()
-        self.pass_entry = gtk.Entry()
-        self.pass_entry.set_size_request(200,25)
-        self.pass_entry.set_text(self.server)
-        tool_item.add(self.pass_entry)
-        self.pass_entry.show()
+        self.server_entry = gtk.Entry()
+        self.server_entry.set_size_request(200,25)
+        self.server_entry.set_text(self.server)
+        tool_item.add(self.server_entry)
+        self.server_entry.show()
         activity_toolbar.insert(tool_item, 5)
         tool_item.show()
         
@@ -75,65 +80,103 @@ class KnutActivity(activity.Activity):
         self.test_toolbar = TestToolbar(self)
         toolbox.add_toolbar("Test", self.test_toolbar)
         self.test_toolbar.show()
+        
+        # dodanie paska do przeglądania testów na serwerze
+        self.browse_toolbar = BrowseToolbar(self)
+        toolbox.add_toolbar("Przeglądaj testy", self.browse_toolbar)
+        self.browse_toolbar.show()
+        
 #        self.settings_toolbar = SettingsToolbar(self)
 #        toolbox.add_toolbar("Ustawienia", self.test_toolbar)
 #        self.settings_toolbar.show()
         self.set_toolbox(toolbox)
+        
         toolbox.show()
         
     def save_server(self, widget=None, data=None):
         """
         Zapisuje ustawienia serwera
         """
-        passwd = self.pass_entry.get_text()
-        if passwd:
+        server = self.server_entry.get_text()
+        if server:
+            if server.find('http://') == -1:
+                server = 'http://' + server
             fout = open(self.server_settings_path, 'w')
-            fout.write(passwd)
+            self.server = server
+            fout.write(server)
             fout.close()
-            self.show_alert(title="Edycja ustawień testu %s" % self.test_id, msg="Zapisano adres serwera")
+            self.show_alert(title="Edycja ustawień testu %s" % self.test_id, msg="Zapisano adres serwera")            
         
-    def get_test_bt(self, widget=None, data=None):
+    def get_test_bt(self, widget=None, data=None, check_pass=True):
         self.clear_alerts()
         try:
-            self.test_id = self.test_toolbar.test_entry.get_text()
+            if self.chosen_test_id:
+                self.test_id = self.chosen_test_id
+                self.chosen_test_id = None
+                self.test_pass = self.browse_toolbar.pass_entry.get_text()
+            else:
+                self.test_pass = self.test_toolbar.pass_entry.get_text()
+                self.test_id = self.test_toolbar.test_entry.get_text()
             #sprawdzenie czy istnieje
-            if self.test_id:
-                user_name = profile.get_nick_name()
-                test_pass = self.test_toolbar.pass_entry.get_text()
-                boundary = mimetools.choose_boundary()
-                body_list = []
-                body_list = ["--%s--"%boundary,"Content-Disposition: form-data; name=test-id", "", self.test_id, "--%s--"%boundary,
-                             "Content-Disposition: form-data; name=test-password", "", test_pass, "--%s--"%boundary,
-                             "Content-Disposition: form-data; name=user_name", "", user_name, "--%s--"%boundary]
-                body = "\r\n".join(body_list)
-                headers = {"Content-Type": "multipart/form-data; boundary=%s"%boundary, "Content-Length": str(len(body))}
-                connection = httplib.HTTPConnection(self.server)
-                connection.request("POST","/questions_download/", body, headers)
-                response = connection.getresponse()
-                if response.reason != "OK":
-                    print response.reason
-                    print response.read()
+            if check_pass and not self.test_pass:
+                self.show_alert(title="Pobieranie testu %s" % self.test_id, msg="Hasło jest wymagane")
+            elif not self.test_id:
+                self.show_alert(title="Pobieranie testu %s" % self.test_id, msg="Pole z Id testu jest wymagane")
+            else:
+                self.user_name = profile.get_nick_name()
+                self.test_pass = self.test_pass
+                values = {'test-id': self.test_id,
+                        'test-password': self.test_pass,
+                        'user-name': self.user_name}
+                data = urllib.urlencode(values)
+                url = self.server + '/questions_download/'
+                req = urllib2.Request(url, data)
+                response = urllib2.urlopen(req)
                 
                 questions_file = open(self.questions_path, "w")
                 questions_file.write(response.fp.read())
                 questions_file.close()
                 
-                connection = httplib.HTTPConnection(self.server)
-                connection.request("POST","/answers_download/", body, headers)
-                response = connection.getresponse()
-                if response.reason != "OK":
-                    print response.reason
-                    print response.read()
-                
-                answers_response = response.fp.read()
-                answers_file = open(self.answers_path, "w")
-                answers_file.write(answers_response)
-                answers_file.close()
-                
-                #wypakowanie testu
                 questions_file = tarfile.open(self.questions_path,"r")
                 questions_file.extractall(path=self.data_path)
                 os.remove(self.questions_path)
+                
+                
+                
+#                user_name = profile.get_nick_name()
+#                test_pass = self.test_toolbar.pass_entry.get_text()
+#                body_list = ["--%s--"%boundary,"Content-Disposition: form-data; name=test-id", "", self.test_id, "--%s--"%boundary,
+#                             "Content-Disposition: form-data; name=test-password", "", test_pass, "--%s--"%boundary,
+#                             "Content-Disposition: form-data; name=user_name", "", user_name, "--%s--"%boundary]
+#                body = "\r\n".join(body_list)
+#                headers = {"Content-Type": "multipart/form-data; boundary=%s"%boundary, "Content-Length": str(len(body))}
+#                connection = httplib.HTTPConnection(self.server)
+#                connection.request("POST","/questions_download/", body, headers)
+#                response = connection.getresponse()
+#                if response.reason != "OK":
+#                    print response.reason
+#                    print response.read()
+#                
+#                questions_file = open(self.questions_path, "w")
+#                questions_file.write(response.fp.read())
+#                questions_file.close()
+#                
+#                connection = httplib.HTTPConnection(self.server)
+#                connection.request("POST","/answers_download/", body, headers)
+#                response = connection.getresponse()
+#                if response.reason != "OK":
+#                    print response.reason
+#                    print response.read()
+#                
+#                answers_response = response.fp.read()
+#                answers_file = open(self.answers_path, "w")
+#                answers_file.write(answers_response)
+#                answers_file.close()
+#                
+#                #wypakowanie testu
+#                questions_file = tarfile.open(self.questions_path,"r")
+#                questions_file.extractall(path=self.data_path)
+#                os.remove(self.questions_path)
                 
                 self.show_alert(title="Pobieranie testu %s" % self.test_id, msg="Pobieranie testu zakończone sukcesem, kliknij ok aby kontynuować", start_test=True)
                 #urlretrieve(url+"test.zip", zip_path)
@@ -157,11 +200,15 @@ class KnutActivity(activity.Activity):
                     #    self.handle.test_cover = True
                     #else:
                     #    msg = "Pobrany test nie jest zgodny ze standardem"
-            else:
-                self.show_alert(title="Pobieranie testu %s" % self.test_id, msg="Pole z Id testu jest wymagane")
-    
-
         except:
+            self._logger = logging.getLogger('activity-knut')
+            self._logger.setLevel(logging.DEBUG)
+            #First log handler: outputs to a file  
+            file_handler = logging.FileHandler('/home/wiktor/code/knut.log')
+            file_formatter = logging.Formatter('%(message)s')
+            file_handler.setFormatter(file_formatter)
+            self._logger.addHandler(file_handler)
+            self._logger.exception('Pobieranie testu')
             self.show_alert(title="Pobieranie testu %s" % self.test_id, msg="Nie udało się pobrać testu, skontaktuj się z nauczycielem")
                    
     def show_alert(self, title='', msg='', start_test = False):

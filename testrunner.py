@@ -5,13 +5,24 @@ from sugar.graphics.alert import NotifyAlert, Alert
 from sugar import profile
 import os
 import gtk
+import logging
 import coverpanel, itempanel
 import mimetools
 import httplib
+import urllib, urllib2
 
 class RunTest():
     def __init__(self, handle):
         self.handle = handle
+        
+        self._logger = logging.getLogger('activity-knut')
+        self._logger.setLevel(logging.DEBUG)
+        #First log handler: outputs to a file  
+        file_handler = logging.FileHandler('/home/wiktor/code/knut.log')
+        file_formatter = logging.Formatter('%(message)s')
+        file_handler.setFormatter(file_formatter)
+        self._logger.addHandler(file_handler)
+        
         self.answers_dict = {}
         self.question_type = {}
         test_file = file(self.handle.test_path)
@@ -62,6 +73,20 @@ class RunTest():
     def _finish_test(self):      
         self.item_panel.hide_all()
         user_name = profile.get_nick_name()
+        
+        # downloading answers
+        values = {'test-id': self.handle.test_id,
+                'test-password': self.handle.test_pass,
+                'user-name': user_name}
+        data = urllib.urlencode(values)
+        url = self.handle.server + '/answers_download/'
+        req = urllib2.Request(url, data)
+        response = urllib2.urlopen(req)
+        
+        answers_file = open(self.handle.answers_path, "w")
+        answers_file.write(response.fp.read())
+        answers_file.close()      
+        
         answers_xml = objectify.parse(self.handle.answers_path).getroot()
 #        print self.answers_dict
         emr = objectify.ElementMaker()
@@ -109,15 +134,16 @@ class RunTest():
 #        f.close()
         boundary = mimetools.choose_boundary()
         body_list = []
-        body_list = ["--%s--"%boundary, "content-disposition: form-data; name=results_xml; filename=results.xml", 
-                      "content-type: application/xml", "", etree.tostring(results_xml, pretty_print=True), "--%s--"%boundary, 
+        body_list = ["--%s--"%boundary, "Content-Disposition: form-data; name=results_xml; filename=results.xml", 
+                      "Content-Type: application/xml", "", etree.tostring(results_xml, pretty_print=True), "--%s--"%boundary, 
                       'Content-Disposition: form-data; name="login"', "", user_name, "--%s--"%boundary, 
-                      'Content-Disposition: from-data; name="test-id"', "", self.handle.test_id, "--%s--"%boundary, 
-                      'Content-Disposition: from-data; name="points"', "", str(points), "--%s--"%boundary,
-                      'Content-Disposition: from-data; name="points-percentage"', "", '%2.1f' % points_percentage, "--%s--"%boundary]
+                      'Content-Disposition: form-data; name="test-id"', "", self.handle.test_id, "--%s--"%boundary, 
+                      'Content-Disposition: form-data; name="points"', "", str(points), "--%s--"%boundary,
+                      'Content-Disposition: form-data; name="points-percentage"', "", '%2.1f' % points_percentage, "--%s--"%boundary]
         body = "\r\n".join(body_list)
         headers = {"content-type":"multipart/form-data; boundary=%s"%boundary, "content-length":str(len(body))}
-        connection = httplib.HTTPConnection(self.handle.server)
+        connection = httplib.HTTPConnection(self.handle.server.replace('http://',''))
+        self._logger.debug(self.handle.server)
         connection.request("POST","/results_upload/", body, headers)
         response = connection.getresponse()
         re = response.read()
@@ -135,6 +161,7 @@ class RunTest():
                 os.remove(os.path.join(root, name) )
             for name in dirs:
                 os.rmdir(os.path.join(root, name) )
+        self._logger.debug('koniec')
         
     def _alert_cb(self, widget=None, data=None):
         self.handle.remove_alert(widget)
