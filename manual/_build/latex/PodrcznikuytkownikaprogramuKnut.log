@@ -1,11 +1,8 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.7.30)  20 SEP 2010 17:01
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.7.30)  22 SEP 2010 02:31
 entering extended mode
  %&-line parsing enabled.
-**PodrcznikuytkownikaprogramuKnut-aplikacjidorozwizywaniatestwnaplatformiesugar
-.tex
-
-(./PodrcznikuytkownikaprogramuKnut-aplikacjidorozwizywaniatestwnaplatformiesuga
-r.tex
+**PodrcznikuytkownikaprogramuKnut.tex
+(./PodrcznikuytkownikaprogramuKnut.tex
 LaTeX2e <2005/12/01>
 Babel <v3.8h> and hyphenation patterns for english, usenglishmax, dumylang, noh
 yphenation, loaded.
@@ -258,21 +255,26 @@ LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
 (/usr/share/texmf-texlive/tex/generic/babel/babel.sty
 Package: babel 2005/11/23 v3.8h The Babel package
 
-(/usr/share/texmf-texlive/tex/generic/babel/english.ldf
-Language: english 2005/03/30 v3.3o English support from the babel system
+(/usr/share/texmf-texlive/tex/generic/babel/polish.ldf
+Language: polish 2005/03/31 v1.2l Polish support from the babel system
 
 (/usr/share/texmf-texlive/tex/generic/babel/babel.def
 File: babel.def 2005/11/23 v3.8h Babel common definitions
 \babel@savecnt=\count88
 \U@D=\dimen103
 )
-\l@british = a dialect from \language\l@english 
-\l@UKenglish = a dialect from \language\l@english 
-\l@canadian = a dialect from \language\l@american 
-\l@australian = a dialect from \language\l@british 
-\l@newzealand = a dialect from \language\l@british 
-))
-(/usr/share/texmf-texlive/tex/latex/psnfss/times.sty
+
+Package babel Warning: No hyphenation patterns were loaded for
+(babel)                the language `Polish'
+(babel)                I will use the patterns loaded for \language=0 instead.
+
+\l@polish = a dialect from \language0
+Package babel Info: Making " an active character on input line 83.
+\pl@left=\dimen104
+\pl@down=\dimen105
+\pl@right=\dimen106
+\pl@temp=\dimen107
+)) (/usr/share/texmf-texlive/tex/latex/psnfss/times.sty
 Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
 ) (./fncychap.sty
 Package: fncychap 2007/07/30 v1.34 LaTeX package (Revised chapters)
@@ -283,8 +285,6 @@ Package: fncychap 2007/07/30 v1.34 LaTeX package (Revised chapters)
 \py=\skip47
 \pyy=\skip48
 \pxx=\skip49
-\c@AlphaCnt=\count89
-\c@AlphaDecCnt=\count90
 )
 (/usr/share/texmf-texlive/tex/latex/tools/longtable.sty
 Package: longtable 2004/02/01 v4.11 Multi-page Table package (DPC)
@@ -292,16 +292,16 @@ Package: longtable 2004/02/01 v4.11 Multi-page Table package (DPC)
 \LTright=\skip51
 \LTpre=\skip52
 \LTpost=\skip53
-\LTchunksize=\count91
-\LTcapwidth=\dimen104
+\LTchunksize=\count89
+\LTcapwidth=\dimen108
 \LT@head=\box26
 \LT@firsthead=\box27
 \LT@foot=\box28
 \LT@lastfoot=\box29
-\LT@cols=\count92
-\LT@rows=\count93
-\c@LT@tables=\count94
-\c@LT@chunks=\count95
+\LT@cols=\count90
+\LT@rows=\count91
+\c@LT@tables=\count92
+\c@LT@chunks=\count93
 \LT@p@ftn=\toks16
 ) (./sphinx.sty
 Package: sphinx 2010/01/15 LaTeX package (Sphinx markup)
@@ -463,7 +463,7 @@ Package: fancybox 2000/09/19 1.3
 
 Style option: `fancybox' v1.3 <2000/09/19> (tvz)
 \@fancybox=\box30
-\shadowsize=\dimen105
+\shadowsize=\dimen109
 \@Sbox=\box31
 \do@VerbBox=\toks17
 \the@fancyput=\toks18
@@ -476,27 +476,27 @@ Package: titlesec 2005/01/22 v2.6 Sectioning titles
 \ttl@box=\box32
 \beforetitleunit=\skip63
 \aftertitleunit=\skip64
-\ttl@plus=\dimen106
-\ttl@minus=\dimen107
-\titlewidth=\dimen108
-\titlewidthlast=\dimen109
-\titlewidthfirst=\dimen110
+\ttl@plus=\dimen110
+\ttl@minus=\dimen111
+\titlewidth=\dimen112
+\titlewidthlast=\dimen113
+\titlewidthfirst=\dimen114
 ) (./tabulary.sty
 Package: tabulary 2007/10/02 v0.9 tabulary package (DPC)
 
 (/usr/share/texmf-texlive/tex/latex/tools/array.sty
 Package: array 2005/08/23 v2.4b Tabular extension package (FMi)
-\col@sep=\dimen111
-\extrarowheight=\dimen112
+\col@sep=\dimen115
+\extrarowheight=\dimen116
 \NC@list=\toks21
 \extratabsurround=\skip65
 \backup@length=\skip66
 )
-\TY@count=\count96
-\TY@linewidth=\dimen113
-\tymin=\dimen114
-\tymax=\dimen115
-\TY@tablewidth=\dimen116
+\TY@count=\count94
+\TY@linewidth=\dimen117
+\tymin=\dimen118
+\tymax=\dimen119
+\TY@tablewidth=\dimen120
 )
 (/usr/share/texmf-texlive/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2000/07/18 v2.13 AMS math features
@@ -509,46 +509,46 @@ Package: amstext 2000/06/29 v2.01
 (/usr/share/texmf-texlive/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks22
-\ex@=\dimen117
+\ex@=\dimen121
 ))
 (/usr/share/texmf-texlive/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d
-\pmbraise@=\dimen118
+\pmbraise@=\dimen122
 )
 (/usr/share/texmf-texlive/tex/latex/amsmath/amsopn.sty
 Package: amsopn 1999/12/14 v2.01 operator names
 )
-\inf@bad=\count97
+\inf@bad=\count95
 LaTeX Info: Redefining \frac on input line 211.
-\uproot@=\count98
-\leftroot@=\count99
+\uproot@=\count96
+\leftroot@=\count97
 LaTeX Info: Redefining \overline on input line 307.
-\classnum@=\count100
-\DOTSCASE@=\count101
+\classnum@=\count98
+\DOTSCASE@=\count99
 LaTeX Info: Redefining \ldots on input line 379.
 LaTeX Info: Redefining \dots on input line 382.
 LaTeX Info: Redefining \cdots on input line 467.
 \Mathstrutbox@=\box33
 \strutbox@=\box34
-\big@size=\dimen119
+\big@size=\dimen123
 LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
-\macc@depth=\count102
-\c@MaxMatrixCols=\count103
+\macc@depth=\count100
+\c@MaxMatrixCols=\count101
 \dotsspace@=\muskip10
-\c@parentequation=\count104
-\dspbrk@lvl=\count105
+\c@parentequation=\count102
+\dspbrk@lvl=\count103
 \tag@help=\toks23
-\row@=\count106
-\column@=\count107
-\maxfields@=\count108
+\row@=\count104
+\column@=\count105
+\maxfields@=\count106
 \andhelp@=\toks24
-\eqnshift@=\dimen120
-\alignsep@=\dimen121
-\tagshift@=\dimen122
-\tagwidth@=\dimen123
-\totwidth@=\dimen124
-\lineht@=\dimen125
+\eqnshift@=\dimen124
+\alignsep@=\dimen125
+\tagshift@=\dimen126
+\tagwidth@=\dimen127
+\totwidth@=\dimen128
+\lineht@=\dimen129
 \@envbody=\toks25
 \multlinegap=\skip68
 \multlinetaggap=\skip69
@@ -561,8 +561,8 @@ Package: makeidx 2000/03/29 v1.0m Standard LaTeX package
 )
 (/usr/share/texmf-texlive/tex/latex/ltxmisc/framed.sty
 Package: framed 2003/07/21 v 0.8a: framed or shaded text with page breaks
-\FrameRule=\dimen126
-\FrameSep=\dimen127
+\FrameRule=\dimen130
+\FrameSep=\dimen131
 )
 (/usr/share/texmf-texlive/tex/latex/graphics/color.sty
 Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
@@ -574,7 +574,7 @@ Package color Info: Driver file: pdftex.def on input line 130.
 
 (/usr/share/texmf-texlive/tex/latex/pdftex-def/pdftex.def
 File: pdftex.def 2007/01/08 v0.04d Graphics/color for pdfTeX
-\Gread@gobject=\count109
+\Gread@gobject=\count107
 ))
 (/usr/share/texmf-texlive/tex/latex/fancyvrb/fancyvrb.sty
 Package: fancyvrb 1998/07/17
@@ -584,11 +584,11 @@ Style option: `fancyvrb' v2.6, with DG/SPQR fixes <1998/07/17> (tvz)
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks27
 )
-\FV@CodeLineNo=\count110
+\FV@CodeLineNo=\count108
 \FV@InFile=\read2
 \FV@TabBox=\box35
-\c@FancyVerbLine=\count111
-\FV@StepNumber=\count112
+\c@FancyVerbLine=\count109
+\FV@StepNumber=\count110
 \FV@OutFile=\write4
 
 No file fancyvrb.cfg.
@@ -599,12 +599,12 @@ Package: threeparttable 2003/06/13  v 3.0
 (/usr/share/texmf-texlive/tex/latex/mdwtools/footnote.sty
 Package: footnote 1997/01/28 1.13 Save footnotes around boxes
 \fn@notes=\box37
-\fn@width=\dimen128
+\fn@width=\dimen132
 )
 (/usr/share/texmf-texlive/tex/latex/wrapfig/wrapfig.sty
-\wrapoverhang=\dimen129
-\WF@size=\dimen130
-\c@WF@wrappedlines=\count113
+\wrapoverhang=\dimen133
+\WF@size=\dimen134
+\c@WF@wrappedlines=\count111
 \WF@box=\box38
 \WF@everypar=\toks28
 Package: wrapfig 2003/01/31  v 3.6
@@ -626,8 +626,8 @@ File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
 Package graphics Info: Driver file: pdftex.def on input line 90.
 )
-\Gin@req@height=\dimen131
-\Gin@req@width=\dimen132
+\Gin@req@height=\dimen135
+\Gin@req@width=\dimen136
 )
 (/usr/share/texmf-texlive/tex/plain/misc/pdfcolor.tex)
 \distancetoright=\skip70
@@ -636,13 +636,13 @@ Package graphics Info: Driver file: pdftex.def on input line 90.
 \py@noticelength=\skip73
 \lineblockindentation=\skip74
 \image@box=\box39
-\image@width=\dimen133
+\image@width=\dimen137
 
 (/usr/share/texmf-texlive/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2007/02/07 v6.75r Hypertext links for LaTeX
-\@linkdim=\dimen134
-\Hy@linkcounter=\count114
-\Hy@pagecounter=\count115
+\@linkdim=\dimen138
+\Hy@linkcounter=\count112
+\Hy@pagecounter=\count113
 
 (/usr/share/texmf-texlive/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2007/02/07 v6.75r Hyperref: PDFDocEncoding definition (HO)
@@ -671,9 +671,9 @@ Package hyperref Info: Bookmarks ON on input line 2444.
 Package: url 2005/06/27  ver 3.2  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 2599.
-\Fld@menulength=\count116
-\Field@Width=\dimen135
-\Fld@charsize=\dimen136
+\Fld@menulength=\count114
+\Field@Width=\dimen139
+\Fld@charsize=\dimen140
 \Choice@toks=\toks29
 \Field@toks=\toks30
 Package hyperref Info: Hyper figures OFF on input line 3102.
@@ -681,27 +681,22 @@ Package hyperref Info: Link nesting OFF on input line 3107.
 Package hyperref Info: Hyper index ON on input line 3110.
 Package hyperref Info: backreferencing OFF on input line 3117.
 Package hyperref Info: Link coloring ON on input line 3120.
-\Hy@abspage=\count117
-\c@Item=\count118
-\c@Hfootnote=\count119
+\Hy@abspage=\count115
+\c@Item=\count116
+\c@Hfootnote=\count117
 )
 *hyperref using default driver hpdftex*
 (/usr/share/texmf-texlive/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2007/02/07 v6.75r Hyperref driver for pdfTeX
-\Fld@listcount=\count120
+\Fld@listcount=\count118
 ))
 \@indexfile=\write5
-\openout5 = `PodrcznikuytkownikaprogramuKnut-aplikacjidorozwizywaniatestwnaplat
-formiesugar.idx'.
+\openout5 = `PodrcznikuytkownikaprogramuKnut.idx'.
 
 
-Writing index file PodrcznikuytkownikaprogramuKnut-aplikacjidorozwizywaniatestw
-naplatformiesugar.idx
-
-(./PodrcznikuytkownikaprogramuKnut-aplikacjidorozwizywaniatestwnaplatformiesuga
-r.aux)
-\openout1 = `PodrcznikuytkownikaprogramuKnut-aplikacjidorozwizywaniatestwnaplat
-formiesugar.aux'.
+Writing index file PodrcznikuytkownikaprogramuKnut.idx
+(./PodrcznikuytkownikaprogramuKnut.aux)
+\openout1 = `PodrcznikuytkownikaprogramuKnut.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 105.
 LaTeX Font Info:    ... okay on input line 105.
@@ -718,7 +713,8 @@ LaTeX Font Info:    ... okay on input line 105.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 105.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 105.
 
- (/usr/share/texmf-texlive/tex/latex/base/ts1cmr.fd
+
+(/usr/share/texmf-texlive/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 105.
@@ -731,15 +727,15 @@ File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
 (/usr/share/texmf/tex/context/base/supp-pdf.tex
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count121
-\scratchdimen=\dimen137
+\scratchcounter=\count119
+\scratchdimen=\dimen141
 \scratchbox=\box40
-\nofMPsegments=\count122
-\nofMParguments=\count123
+\nofMPsegments=\count120
+\nofMParguments=\count121
 \everyMPshowfont=\toks31
-\MPscratchCnt=\count124
-\MPscratchDim=\dimen138
-\MPnumerator=\count125
+\MPscratchCnt=\count122
+\MPscratchDim=\dimen142
+\MPnumerator=\count123
 \everyMPtoPDFconversion=\toks32
 )
 Package hyperref Info: Link coloring ON on input line 105.
@@ -749,18 +745,14 @@ Package: nameref 2006/12/27 v2.28 Cross-referencing by name of section
 (/usr/share/texmf-texlive/tex/latex/oberdiek/refcount.sty
 Package: refcount 2006/02/20 v3.0 Data extraction from references (HO)
 )
-\c@section@level=\count126
+\c@section@level=\count124
 )
 LaTeX Info: Redefining \ref on input line 105.
 LaTeX Info: Redefining \pageref on input line 105.
 
-(./PodrcznikuytkownikaprogramuKnut-aplikacjidorozwizywaniatestwnaplatformiesuga
-r.out)
-(./PodrcznikuytkownikaprogramuKnut-aplikacjidorozwizywaniatestwnaplatformiesuga
-r.out)
+(./PodrcznikuytkownikaprogramuKnut.out) (./PodrcznikuytkownikaprogramuKnut.out)
 \@outlinefile=\write6
-\openout6 = `PodrcznikuytkownikaprogramuKnut-aplikacjidorozwizywaniatestwnaplat
-formiesugar.out'.
+\openout6 = `PodrcznikuytkownikaprogramuKnut.out'.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 108--108
@@ -785,15 +777,12 @@ LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <17.28> not available
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2
 
-]
-(./PodrcznikuytkownikaprogramuKnut-aplikacjidorozwizywaniatestwnaplatformiesuga
-r.toc
+] (./PodrcznikuytkownikaprogramuKnut.toc
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 2.
 )
 \tf@toc=\write7
-\openout7 = `PodrcznikuytkownikaprogramuKnut-aplikacjidorozwizywaniatestwnaplat
-formiesugar.toc'.
+\openout7 = `PodrcznikuytkownikaprogramuKnut.toc'.
 
 
 Adding blank page after the table of contents.
@@ -813,46 +802,95 @@ s been already used, duplicate ignored
                    \relax 
 l.108 \tableofcontents
                        [2]
+Rozdzia\l  1.
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 113.
+LaTeX Font Info:    Try loading font information for TS1+ptm on input line 129.
+
+(/usr/share/texmf-texlive/tex/latex/psnfss/ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+)
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <12> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 138.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 151.
+
+(/usr/share/texmf-texlive/tex/latex/psnfss/t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+) [1
+
+
+]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 23.14496pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[1
+[2]
+Rozdzia\l  2.
+<OknoStart.png, id=82, 843.15pt x 246.9225pt>
+File: OknoStart.png Graphic file (type png)
+ <use OknoStart.png>
+File: OknoStart.png Graphic file (type png)
 
-] [2
+<use OknoStart.png> [3
 
-]
-Chapter 1.
-LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 115.
-LaTeX Font Info:    Try loading font information for TS1+ptm on input line 117.
+ <./OknoStart.png (PNG copy)>]
+<AdresSerwera.png, id=88, 451.6875pt x 116.435pt>
+File: AdresSerwera.png Graphic file (type png)
+ <use AdresSerwera.png>
+File: AdresSerwera.png Graphic file (type png)
 
-(/usr/share/texmf-texlive/tex/latex/psnfss/ts1ptm.fd
-File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-)
-(./PodrcznikuytkownikaprogramuKnut-aplikacjidorozwizywaniatestwnaplatformiesuga
-r.ind) [3]
-(./PodrcznikuytkownikaprogramuKnut-aplikacjidorozwizywaniatestwnaplatformiesuga
-r.aux) ) 
+<use AdresSerwera.png> <PobierzTest.png, id=89, 867.24pt x 124.465pt>
+File: PobierzTest.png Graphic file (type png)
+
+<use PobierzTest.png>
+File: PobierzTest.png Graphic file (type png)
+ <use PobierzTest.png>
+<PrzegladanieTestow.png, id=90, 870.25125pt x 324.21124pt>
+File: PrzegladanieTestow.png Graphic file (type png)
+
+<use PrzegladanieTestow.png>
+File: PrzegladanieTestow.png Graphic file (type png)
+ <use PrzegladanieTestow.png> [4 <./AdresSerwera.png> <./PobierzTest.png> <./Pr
+zegladanieTestow.png>]
+<PierwszaStronaTestu.png, id=98, 870.25125pt x 557.08125pt>
+File: PierwszaStronaTestu.png Graphic file (type png)
+
+<use PierwszaStronaTestu.png>
+File: PierwszaStronaTestu.png Graphic file (type png)
+ <use PierwszaStronaTestu.png>
+<Pytanie.png, id=99, 866.23625pt x 488.82625pt>
+File: Pytanie.png Graphic file (type png)
+ <use Pytanie.png>
+File: Pytanie.png Graphic file (type png)
+
+<use Pytanie.png> [5 <./PierwszaStronaTestu.png (PNG copy)> <./Pytanie.png (PNG
+ copy)>] <Wyniki.png, id=104, 866.23625pt x 95.35625pt>
+File: Wyniki.png Graphic file (type png)
+ <use Wyniki.png>
+File: Wyniki.png Graphic file (type png)
+
+<use Wyniki.png> (./PodrcznikuytkownikaprogramuKnut.ind) [6 <./Wyniki.png (PNG 
+copy)>] (./PodrcznikuytkownikaprogramuKnut.aux) ) 
 Here is how much of TeX's memory you used:
- 6396 strings out of 95086
- 83891 string characters out of 1183255
- 146181 words of memory out of 1500000
- 9430 multiletter control sequences out of 10000+50000
- 45514 words of font info for 50 fonts, out of 1200000 for 2000
+ 6593 strings out of 95086
+ 85687 string characters out of 1183255
+ 150103 words of memory out of 1500000
+ 9594 multiletter control sequences out of 10000+50000
+ 53920 words of font info for 60 fonts, out of 1200000 for 2000
  29 hyphenation exceptions out of 8191
- 34i,11n,45p,409b,407s stack positions out of 5000i,500n,6000p,200000b,5000s
-{/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf
--texlive/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texmf-texlive/fonts/ty
-pe1/urw/helvetic/uhvbo8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/ut
-mb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></usr/share
-/texmf-texlive/fonts/type1/urw/times/utmri8a.pfb>
-Output written on PodrcznikuytkownikaprogramuKnut-aplikacjidorozwizywaniatestwn
-aplatformiesugar.pdf (7 pages, 52824 bytes).
+ 34i,12n,45p,480b,444s stack positions out of 5000i,500n,6000p,200000b,5000s
+{/usr/share/texmf-texlive/font
+s/enc/dvips/base/8r.enc}</usr/share/texmf-texlive/fonts/type1/urw/courier/ucrr8
+a.pfb></usr/share/texmf-texlive/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share
+/texmf-texlive/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/share/texmf-texlive/f
+onts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times
+/utmr8a.pfb>
+Output written on PodrcznikuytkownikaprogramuKnut.pdf (10 pages, 184971 bytes).
+
 PDF statistics:
- 70 PDF objects out of 1000 (max. 8388607)
- 9 named destinations out of 1000 (max. 131072)
- 25 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 135 PDF objects out of 1000 (max. 8388607)
+ 27 named destinations out of 1000 (max. 131072)
+ 108 words of extra memory for PDF output out of 10000 (max. 10000000)
 

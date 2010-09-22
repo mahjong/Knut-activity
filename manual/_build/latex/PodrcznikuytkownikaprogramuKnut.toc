@@ -1,0 +1,10 @@
+\select@language {polish}
+\contentsline {chapter}{\numberline {1}Wprowadzenie}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Wymagania systemowe}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}Instalacja programu}{1}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Instalacja przez stron\IeC {\k e} internetow\IeC {\k a}}{1}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}Instalacja z dysku USB lub karty pami\IeC {\k e}ci SD}{2}{subsection.1.2.2}
+\contentsline {chapter}{\numberline {2}Obs\IeC {\l }uga programu}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}Ustawienia programu}{4}{section.2.1}
+\contentsline {section}{\numberline {2.2}Wyb\IeC {\'o}r testu do rozwi\IeC {\k a}zania}{4}{section.2.2}
+\contentsline {section}{\numberline {2.3}Rozwi\IeC {\k a}zywanie testu}{5}{section.2.3}
